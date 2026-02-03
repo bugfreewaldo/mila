@@ -255,6 +255,9 @@ export const translations = {
       simulatorNote: "Note:",
       simulatorDesc: "This is a simulated monitor for demonstration purposes. Vital signs are generated with realistic variations and occasional events (bradycardia, desaturation) to demonstrate alert functionality.",
       thresholdNote: "Alerts are triggered based on neonatal thresholds when values exceed limits for specified durations.",
+      getStartedTitle: "Start Real-Time Monitoring",
+      getStartedDesc: "Click the button above to start the vital signs simulator. You'll see realistic heart rate, oxygen saturation, respiratory rate, and temperature readings with live charts and clinical alerts.",
+      getStartedHint: "Experience how MILA monitors and alerts you to critical changes in your patient's condition.",
     },
 
     // Settings page
@@ -606,6 +609,9 @@ export const translations = {
       simulatorNote: "Nota:",
       simulatorDesc: "Este es un monitor simulado para propósitos de demostración. Los signos vitales se generan con variaciones realistas y eventos ocasionales (bradicardia, desaturación) para demostrar la funcionalidad de alertas.",
       thresholdNote: "Las alertas se activan basándose en umbrales neonatales cuando los valores exceden los límites por duraciones específicas.",
+      getStartedTitle: "Iniciar Monitoreo en Tiempo Real",
+      getStartedDesc: "Haz clic en el botón de arriba para iniciar el simulador de signos vitales. Verás lecturas realistas de frecuencia cardíaca, saturación de oxígeno, frecuencia respiratoria y temperatura con gráficos en vivo y alertas clínicas.",
+      getStartedHint: "Experimenta cómo MILA monitorea y te alerta sobre cambios críticos en la condición de tu paciente.",
     },
 
     // Settings page

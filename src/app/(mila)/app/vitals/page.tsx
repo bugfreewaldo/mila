@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useCallback } from "react";
-import { Power, PowerOff, Bell, BellOff } from "lucide-react";
+import { Power, PowerOff, Bell, BellOff, Activity, Sparkles, Heart, Wind, Thermometer, Zap } from "lucide-react";
 import { usePatientStore, useMonitorStore } from "@/lib/mila/store";
 import { useTranslation } from "@/lib/mila/i18n";
 import { MockMonitorStream } from "@/lib/mila/sources/monitor";
@@ -147,6 +147,51 @@ export default function VitalsPage() {
           />
         ))}
       </div>
+
+      {/* Get Started Encouragement - Show when monitor is not running */}
+      {!monitorEnabled && (
+        <Card className="border-2 border-dashed border-purple-300 dark:border-purple-700 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30">
+          <CardContent className="pt-6">
+            <div className="text-center space-y-4">
+              <div className="flex justify-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center animate-pulse">
+                  <Heart className="w-6 h-6 text-red-500" />
+                </div>
+                <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center animate-pulse" style={{ animationDelay: "0.2s" }}>
+                  <Activity className="w-6 h-6 text-blue-500" />
+                </div>
+                <div className="w-12 h-12 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center animate-pulse" style={{ animationDelay: "0.4s" }}>
+                  <Wind className="w-6 h-6 text-cyan-500" />
+                </div>
+                <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center animate-pulse" style={{ animationDelay: "0.6s" }}>
+                  <Thermometer className="w-6 h-6 text-orange-500" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold flex items-center justify-center gap-2">
+                  <Sparkles className="w-5 h-5 text-purple-500" />
+                  {t.vitals.getStartedTitle}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-2 max-w-md mx-auto">
+                  {t.vitals.getStartedDesc}
+                </p>
+                <p className="text-xs text-purple-600 dark:text-purple-400 mt-3 flex items-center justify-center gap-1">
+                  <Zap className="w-3 h-3" />
+                  {t.vitals.getStartedHint}
+                </p>
+              </div>
+              <Button
+                size="lg"
+                onClick={toggleMonitor}
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg"
+              >
+                <Power className="w-5 h-5 mr-2" />
+                {t.vitals.startMonitor}
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Alerts Panel */}
       <Card>
