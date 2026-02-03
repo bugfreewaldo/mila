@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+/* MILA Playful Theme - Designed for Neonatal Care */
+:root {
+  /* Soft, friendly pastel palette */
+  --background: 210 50% 98%;
+  --foreground: 250 25% 25%;
+  --card: 0 0% 100%;
+  --card-foreground: 250 25% 25%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 250 25% 25%;
+  /* Friendly purple as primary */
+  --primary: 270 60% 65%;
+  --primary-foreground: 0 0% 100%;
+  /* Soft lavender secondary */
+  --secondary: 270 40% 95%;
+  --secondary-foreground: 270 50% 35%;
+  /* Gentle muted tones */
+  --muted: 210 30% 95%;
+  --muted-foreground: 250 15% 50%;
+  /* Mint accent */
+  --accent: 160 50% 90%;
+  --accent-foreground: 160 50% 30%;
+  /* Soft coral for warnings */
+  --destructive: 10 80% 65%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 270 30% 90%;
+  --input: 270 30% 90%;
+  --ring: 270 60% 65%;
+  --radius: 1rem;
+
+  /* Playful chart colors */
+  --chart-1: 330 70% 70%;
+  --chart-2: 180 60% 60%;
+  --chart-3: 270 60% 70%;
+  --chart-4: 45 80% 65%;
+  --chart-5: 200 70% 65%;
+
+  /* Clinical severity colors - softer versions */
+  --severity-info: 200 80% 60%;
+  --severity-warning: 40 90% 55%;
+  --severity-critical: 350 75% 60%;
+
+  /* Playful extras */
+  --baby-pink: 340 70% 85%;
+  --baby-blue: 200 70% 85%;
+  --baby-mint: 160 50% 85%;
+  --baby-peach: 25 80% 85%;
+  --baby-lavender: 270 50% 88%;
+  --baby-yellow: 50 90% 85%;
+}
+
+/* Dark Mode - Still soft and friendly */
+.dark {
+  --background: 250 30% 12%;
+  --foreground: 210 40% 95%;
+  --card: 250 30% 15%;
+  --card-foreground: 210 40% 95%;
+  --popover: 250 30% 15%;
+  --popover-foreground: 210 40% 95%;
+  --primary: 270 55% 70%;
+  --primary-foreground: 250 30% 10%;
+  --secondary: 270 30% 22%;
+  --secondary-foreground: 270 40% 85%;
+  --muted: 250 25% 20%;
+  --muted-foreground: 250 20% 65%;
+  --accent: 160 40% 25%;
+  --accent-foreground: 160 50% 85%;
+  --destructive: 10 70% 45%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 250 25% 22%;
+  --input: 250 25% 22%;
+  --ring: 270 55% 70%;
+
+  --chart-1: 330 65% 65%;
+  --chart-2: 180 55% 55%;
+  --chart-3: 270 55% 65%;
+  --chart-4: 45 75% 60%;
+  --chart-5: 200 65% 60%;
+
+  --severity-info: 200 75% 65%;
+  --severity-warning: 40 85% 60%;
+  --severity-critical: 350 70% 55%;
+
+  --baby-pink: 340 50% 35%;
+  --baby-blue: 200 50% 35%;
+  --baby-mint: 160 40% 30%;
+  --baby-peach: 25 60% 35%;
+  --baby-lavender: 270 40% 35%;
+  --baby-yellow: 50 70% 35%;
+}
+
+/* Tailwind v4 theme integration */
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Playful baby colors */
+  --color-baby-pink: hsl(var(--baby-pink));
+  --color-baby-blue: hsl(var(--baby-blue));
+  --color-baby-mint: hsl(var(--baby-mint));
+  --color-baby-peach: hsl(var(--baby-peach));
+  --color-baby-lavender: hsl(var(--baby-lavender));
+  --color-baby-yellow: hsl(var(--baby-yellow));
+}
+
+/* Base styles */
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Playful rounded corners on everything */
+.rounded-playful {
+  border-radius: 1.5rem;
+}
+
+/* Clinical-specific utilities - softer colors */
+.vital-normal {
+  color: hsl(160 60% 45%);
+}
+
+.vital-warning {
+  color: hsl(var(--severity-warning));
+}
+
+.vital-critical {
+  color: hsl(var(--severity-critical));
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+/* Floating animation for playful elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Bounce animation */
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 2s ease-in-out infinite;
+}
+
+/* Wiggle animation */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+.animate-wiggle:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+/* Gradient backgrounds */
+.bg-gradient-playful {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--baby-lavender)) 0%,
+    hsl(var(--baby-pink)) 50%,
+    hsl(var(--baby-peach)) 100%
+  );
+}
+
+.bg-gradient-mint {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--baby-mint)) 0%,
+    hsl(var(--baby-blue)) 100%
+  );
+}
+
+/* Card with playful shadow */
+.shadow-playful {
+  box-shadow:
+    0 4px 6px -1px hsl(var(--primary) / 0.1),
+    0 2px 4px -1px hsl(var(--primary) / 0.06);
+}
+
+.shadow-playful-lg {
+  box-shadow:
+    0 10px 25px -5px hsl(var(--primary) / 0.15),
+    0 8px 10px -6px hsl(var(--primary) / 0.1);
+}
+
+/* Dotted pattern background */
+.bg-dots {
+  background-image: radial-gradient(hsl(var(--primary) / 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Scrollbar styling - more playful */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 10px;
+  border: 2px solid hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Playful selection color */
+::selection {
+  background: hsl(var(--baby-lavender));
+  color: hsl(var(--foreground));
+}
+
+/* MILA AI Assistant Animations */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.6), 0 0 60px rgba(168, 85, 247, 0.3); }
+}
+
+.animate-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes attention-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.animate-attention {
+  animation: attention-pulse 1s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* MILA card urgency states */
+.mila-attention {
+  animation: attention-pulse 0.5s ease-in-out infinite;
+  border-color: hsl(var(--destructive)) !important;
+}
+
+.mila-watch {
+  animation: attention-pulse 1.5s ease-in-out infinite;
+  border-color: hsl(var(--severity-warning)) !important;
+}
